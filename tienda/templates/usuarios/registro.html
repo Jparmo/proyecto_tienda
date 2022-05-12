@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %} Registro {% endblock title %}
+
+{% block content %}
+
+    <h1>Registrate</h1>
+
+    <form class="formulario" action="{% url 'app_usuarios:registrar' %}" method="POST">
+        {% csrf_token %}
+        <div class="contenedor">
+    
+            <div class="input-contenedor">
+                <i class="fas fa-user icon"></i>
+                <input type="text" name="username" placeholder="Usuario">
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-user icon"></i>
+                <input type="text" name="first_name" placeholder="Nombre">
+            </div>
+
+            <div class="input-contenedor">
+                <i class="fas fa-user icon"></i>
+                <input type="text" name="last_name" placeholder="Apellidos">
+            </div>
+    
+            <div class="input-contenedor">
+                <i class="fas fa-envelope icon"></i>
+                <input type="text" name="email" placeholder="Correo Electronico">
+            </div>
+    
+            <div class="input-contenedor">
+                <i class="fas fa-key icon"></i>
+                <input type="password" name="password" placeholder="Contraseña">
+            </div>
+
+            <div class="check-box-input">
+                <input type="checkbox" name="staff" id="">staff
+            </div>
+            <br>
+            <input type="submit" value="Registrate" class="button">
+            <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+            <p>¿Ya tienes una cuenta?<a class="link" href="{% url 'app_usuarios:login' %}">Iniciar Sesion</a></p>
+        </div>
+    </form>
+
+{% endblock content %}

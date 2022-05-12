@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock title %}
+
+{% block content %}
+        
+    <h1>Login</h1>
+
+    <form class="formulario" action="{% url 'app_usuarios:login' %}" method="POST">
+        {% csrf_token %}
+        <div class="contenedor">    
+
+            <div class="input-contenedor">
+                <i class="fas fa-envelope icon"></i>
+                <input type="text" name="username" placeholder="Usuario">
+            </div>
+    
+            <div class="input-contenedor">
+                <i class="fas fa-key icon"></i>
+                <input type="password" name="password" placeholder="Contraseña">
+            </div>
+
+            <input type="submit" value="Login" class="button">
+        </div>
+    </form>
+    <p>Al registrarte, aceptas nuestras Condiciones de uso y Política de privacidad.</p>
+    <p>¿No tienes una cuenta? <a class="link" href="{% url 'app_usuarios:registrar' %}">Registrate </a></p>
+
+{% endblock content %}
